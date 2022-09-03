@@ -15,8 +15,16 @@ plugins {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
+// define the properties file
+ext.configFile = file "build.properties"
 
-version = '1.0'
+configFile.withReader {
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = "${config.minecraft_version}-${config.modVersion}.${System.getenv().BUILD_NUMBER ?: 'Dev'}"
 group = 'us.dynmap.dynmap-ftbessentials'
 archivesBaseName = 'dynmap-ftbessentials'
 
