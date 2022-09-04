@@ -68,7 +68,7 @@ public class DynmapFTBEssentials
 			BUILDER.comment("Module options");
 			warpsSetName = BUILDER.comment("Name for marker set for warps").define("warpSetName", "Warps");
 			warpsIcon = BUILDER.comment("ID of marker icon to use for warps").define("warpIcon", DEFICON);
-			warpRefreshTime = BUILDER.comment("Refresh period for warps, in minutes").defineInRange("warpRefreshTime", 5.0, 0.5, 60.0);
+			warpRefreshTime = BUILDER.comment("Refresh period for warps, in minutes").defineInRange("warpRefreshTime", 5.0, 0.1, 60.0);
 			warpLayerPriority = BUILDER.comment("Dynmap layer priority for warp markers").defineInRange("warpLayerPriority", 10, -100, 100);
 			warpLayerHiddenByDefault = BUILDER.comment("Dynmap layer for warps hidden by default").define("warpLayerHidden", false);
 			warpMinZoom = BUILDER.comment("Minimum zoom level for warp marker visibility").defineInRange("warpMinZoom", 0, 0, 100);
