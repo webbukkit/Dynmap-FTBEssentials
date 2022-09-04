@@ -188,11 +188,12 @@ public class DynmapFTBEssentials
     		for (String warpID : newwarps) {
     			TeleportPos pos = FTBEWorldData.instance.warps.get(warpID);
     			Marker m = warpsSet.findMarker(warpID);	// Get existing, if any
+    			String worldname = getWorldName(pos.dimension);
     			if (m == null) {	// If needed, create new
-    				m = warpsSet.createMarker(warpID, warpID, getWorldName(pos.dimension), pos.pos.getX(), pos.pos.getY(), pos.pos.getZ(), warpsIcon, false);
+    				m = warpsSet.createMarker(warpID, warpID, worldname, pos.pos.getX(), pos.pos.getY(), pos.pos.getZ(), warpsIcon, false);
     			}
     			else {
-    				m.setLocation(warpID, pos.pos.getX(), pos.pos.getY(), pos.pos.getZ());
+    				m.setLocation(worldname, pos.pos.getX(), pos.pos.getY(), pos.pos.getZ());
     			}
     		}
     		// And check for ones to remove
