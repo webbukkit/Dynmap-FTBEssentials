@@ -144,21 +144,8 @@ public class DynmapFTBEssentials
     public void onServerStarting(ServerStartingEvent event)
     {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        //LOGGER.info("HELLO from server starting");
         DynmapCommonAPIListener.register(new OurDynmapListener());
-    }
-
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents
-    {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent)
-        {
-            // Register a new block here
-            LOGGER.info("HELLO from Register Block");
-        }
     }
     
     private static final String FTBESSENTIALS_WARPS = "ftbessentials.warps";
@@ -193,7 +180,7 @@ public class DynmapFTBEssentials
     		if (FTBEWorldData.instance == null) return;
     		// If due for checking warps, do so
     		if (warpCheckCountdown > 0) { warpCheckCountdown--; return; }
-    		LOGGER.info("Update markers");
+    		//LOGGER.info("Update markers");
     		warpCheckCountdown = (int)(60.0 * Config.warpRefreshTime.get());
     		// Grab copy of warps
     		HashSet<String> newwarps = new HashSet<String>(FTBEWorldData.instance.warps.keySet());
